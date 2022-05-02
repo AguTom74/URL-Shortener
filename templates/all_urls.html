@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}View all URLS{% endblock %}
+
+{% block content %}
+    <form action="/all_urls", method="post">
+        {% for url in vals %}
+            <p>
+                <input type="checkbox" id={{url.short_url}} name="check" value={{url.short_url}}>
+                <label for={{url.short}}> <strong>URL Corta: </strong>{{url.short_url}}</label>
+                <br>
+                <strong>URL Original: </strong> {{url.long_url}}
+                <br>
+                <strong>Cantidad de Usos: </strong>{{url.cant_usos}}
+                <br>
+                <strong>Fecha de Creación: </strong>{{url.fecha_creacion.strftime('%d-%m-%Y')}}
+            </p>
+        {% endfor %}
+        <input type="submit" value="Eliminar" class="btn btn-primary">
+        <input  type="button" value="Refresh" class="btn btn-primary" onclick="document.location.reload();">
+        <br><br>
+        <a href=" http://127.0.0.1:5000/">Pagina Principal</a>
+        <br><br>
+    </form>
+{% endblock %}
