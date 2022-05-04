@@ -33,7 +33,7 @@ class Urls(db.Model):
 #Fn de Creación de la URL corta
 def shorten_url():
     #Toma todo el alfabeto mayusculas, minusculas y numeros (62)
-    #Podemos generar 62^7 ( ~= 56.800 millones) URLs cortas de 62 letras y numeros que tienen 6 caracteres de longitud.
+    #Podemos generar 62^6 ( ~= 56.800 millones) URLs cortas de 62 letras y numeros que tienen 6 caracteres de longitud.
     letters = string.ascii_lowercase + string.ascii_uppercase + string.digits
     while True:
         rand_letters = random.choices(letters, k=6)
